@@ -1,0 +1,30 @@
+function palindrome(str) {
+  var isPalindrome=true;
+ const myStr=[];
+
+ for(let k=0;k<str.length;k++){
+   myStr[k]=str[k];
+   myStr[k]=myStr[k].toLowerCase();
+ }
+ 
+
+  for(let m=0;m<myStr.length;m++){
+
+     if(myStr[m].toLowerCase()==myStr[m].toUpperCase() && (myStr[m]>'9' || myStr[m]<'0')){ //if not a letter, remove
+     myStr.splice(m,1);
+     m--; 
+  }
+  }
+
+   let backCounter=myStr.length-1;
+
+  for(let i=0;i<myStr.length;i++){
+      if(myStr[i]!=myStr[backCounter]) //if front counter (i) value doesn't match back counter, not a palindrome
+      return false;
+          backCounter--;
+  }
+  
+  return true;
+}
+
+palindrome("eye");
